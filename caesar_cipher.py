@@ -1,4 +1,7 @@
 import argparse
+import string
+
+alphabet = string.ascii_letters
 
 
 def parse_file(filename: str) -> str:
@@ -8,6 +11,22 @@ def parse_file(filename: str) -> str:
         file_contents = file.read()
 
     return file_contents
+
+
+def encrypt(plaintext: str, shift: int) -> str:
+    "Encrytps plaintext with using the given shift"
+
+    encrypted_text = ""
+
+    for char in plaintext:
+        if char.isalpha():
+            # encrypted_char_position = (char_position + shift) mod len(alphabet) - equation for encryption
+            encrypted_char_position = (alphabet.index(char) + shift) % len(alphabet)
+            encrypted_text += alphabet[encrypted_char_position]
+            continue
+        encrypted_text += char
+
+    return encrypted_text
 
 
 def main():
