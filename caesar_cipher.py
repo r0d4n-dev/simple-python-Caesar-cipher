@@ -73,10 +73,30 @@ def main():
         "--output",
         help="Name of output file. If omitted, output is dsiplayed on the standard output",
     )
-    parser.add_argument("-d", "--decrypt", action="store_true", help="Decrypt mode.")
-    parser.add_argument("-e", "--encrypt", action="store_true", help="Encrypt mode.")
+    parser.add_argument(
+        "-d",
+        "--decrypt",
+        action="store_true",
+        help="Decrypt mode. Only one mode can be used at a time.",
+    )
+    parser.add_argument(
+        "-e",
+        "--encrypt",
+        action="store_true",
+        help="Encrypt mode. Only one mode can be used at a time.",
+    )
 
     args = parser.parse_args()
+
+    input_file = args.filename
+    output_file = args.output
+    is_decrypt_mode = args.decrypt
+    is_encrypt_mode = args.encrypt
+
+    # Hanlde user specifying both modes
+    if is_decrypt_mode and is_encrypt_mode:
+        print("Please specify only one mode.")
+        return
 
 
 if __name__ == "__main__":
