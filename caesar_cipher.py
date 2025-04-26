@@ -92,11 +92,28 @@ def main():
     output_file = args.output
     is_decrypt_mode = args.decrypt
     is_encrypt_mode = args.encrypt
+    shift = args.shift
 
     # Hanlde user specifying both modes
     if is_decrypt_mode and is_encrypt_mode:
         print("Please specify only one mode.")
         return
+
+    input_text = parse_file(input_file)
+
+    if is_encrypt_mode:
+        encrypted_text = encrypt(input_text, shift)
+        if output_file:
+            write_to_file(encrypted_text, output_file)
+            return
+        print(encrypted_text)
+
+    if is_decrypt_mode:
+        decrypted_text = decrypt(input_text, shift)
+        if output_file:
+            write_to_file(decrypted_text, output_file)
+            return
+        print(decrypted_text)
 
 
 if __name__ == "__main__":
