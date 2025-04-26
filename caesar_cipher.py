@@ -19,7 +19,7 @@ def encrypt(plaintext: str, shift: int) -> str:
     encrypted_text = ""
 
     for char in plaintext:
-        if char.isalpha():
+        if char in alphabet:
             # encrypted_char_position = (char_position + shift) mod len(alphabet) - equation for encryption
             encrypted_char_position = (alphabet.index(char) + shift) % len(alphabet)
             encrypted_text += alphabet[encrypted_char_position]
@@ -35,7 +35,7 @@ def decrypt(encrypted_text: str, shift: int) -> str:
     decrypted_text = ""
 
     for char in encrypted_text:
-        if char.isalpha():
+        if char in alphabet:
             # decrypted_char_position = (char_position - shift) mod len(alphabet) - equation for decryption
             decrypted_cahr_position = (alphabet.index(char) - shift) % len(alphabet)
             decrypted_text += alphabet[decrypted_cahr_position]
