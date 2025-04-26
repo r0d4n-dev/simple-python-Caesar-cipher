@@ -73,6 +73,8 @@ def main():
         "--output",
         help="Name of output file. If omitted, output is dsiplayed on the standard output",
     )
+    parser.add_argument("-d", "--decrypt", action="store_true", help="Decrypt mode.")
+    parser.add_argument("-e", "--encrypt", action="store_true", help="Encrypt mode.")
 
     args = parser.parse_args()
 
