@@ -45,6 +45,13 @@ def decrypt(encrypted_text: str, shift: int) -> str:
     return decrypted_text
 
 
+def write_to_file(text: str, filename: str) -> None:
+    "Write encrypted/decrypted text to a file"
+
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write(text)
+
+
 def main():
     # file, or text
     # left shift or right shift ammount
