@@ -37,8 +37,8 @@ def decrypt(encrypted_text: str, shift: int) -> str:
     for char in encrypted_text:
         if char in alphabet:
             # decrypted_char_position = (char_position - shift) mod len(alphabet) - equation for decryption
-            decrypted_cahr_position = (alphabet.index(char) - shift) % len(alphabet)
-            decrypted_text += alphabet[decrypted_cahr_position]
+            decrypted_char_position = (alphabet.index(char) - shift) % len(alphabet)
+            decrypted_text += alphabet[decrypted_char_position]
             continue
         decrypted_text += char
 
@@ -66,7 +66,7 @@ def main():
         "-s",
         "--shift",
         type=int,
-        help="Shift to use for the cipher. Positive number for a left shift and negative number for a right shift",
+        help="Shift to use for the cipher. Positive number for a right shift and negative number for a left shift",
     )
     parser.add_argument(
         "-o",
