@@ -54,6 +54,5 @@ Non-alphabetic characters remain unchanged.
 
 ## Limitations
 
-- This implementation only works with ASCII letters (A-Z, a-z)
 - The Caesar cipher is a very basic encryption method and not secure for sensitive information
 - Both parties need to know the shift value to encrypt/decrypt messages

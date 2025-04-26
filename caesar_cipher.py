@@ -1,7 +1,7 @@
 import argparse
 import string
 
-alphabet = string.ascii_letters
+ALPHABET = string.printable
 
 
 def parse_file(filename: str) -> str:
@@ -19,10 +19,10 @@ def encrypt(plaintext: str, shift: int) -> str:
     encrypted_text = ""
 
     for char in plaintext:
-        if char in alphabet:
+        if char in ALPHABET:
             # encrypted_char_position = (char_position + shift) mod len(alphabet) - equation for encryption
-            encrypted_char_position = (alphabet.index(char) + shift) % len(alphabet)
-            encrypted_text += alphabet[encrypted_char_position]
+            encrypted_char_position = (ALPHABET.index(char) + shift) % len(ALPHABET)
+            encrypted_text += ALPHABET[encrypted_char_position]
             continue
         encrypted_text += char
 
@@ -35,10 +35,10 @@ def decrypt(encrypted_text: str, shift: int) -> str:
     decrypted_text = ""
 
     for char in encrypted_text:
-        if char in alphabet:
+        if char in ALPHABET:
             # decrypted_char_position = (char_position - shift) mod len(alphabet) - equation for decryption
-            decrypted_char_position = (alphabet.index(char) - shift) % len(alphabet)
-            decrypted_text += alphabet[decrypted_char_position]
+            decrypted_char_position = (ALPHABET.index(char) - shift) % len(ALPHABET)
+            decrypted_text += ALPHABET[decrypted_char_position]
             continue
         decrypted_text += char
 
