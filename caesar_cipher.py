@@ -1,6 +1,15 @@
 import argparse
 
 
+def parse_file(filename: str) -> str:
+    """Parse text from the input file"""
+
+    with open(filename, "r", encoding="utf-8") as file:
+        file_contents = file.read()
+
+    return file_contents
+
+
 def main():
     # file, or text
     # left shift or right shift ammount
