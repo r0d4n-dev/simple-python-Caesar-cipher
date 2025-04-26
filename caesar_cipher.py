@@ -29,6 +29,22 @@ def encrypt(plaintext: str, shift: int) -> str:
     return encrypted_text
 
 
+def decrypt(encrypted_text: str, shift: int) -> str:
+    "Decrypts encrypted text using the given shift"
+
+    decrypted_text = ""
+
+    for char in encrypted_text:
+        if char.isalpha():
+            # decrypted_char_position = (char_position - shift) mod len(alphabet) - equation for decryption
+            decrypted_cahr_position = (alphabet.index(char) - shift) % len(alphabet)
+            decrypted_text += alphabet[decrypted_cahr_position]
+            continue
+        decrypted_text += char
+
+    return decrypted_text
+
+
 def main():
     # file, or text
     # left shift or right shift ammount
